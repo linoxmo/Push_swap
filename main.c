@@ -6,7 +6,7 @@ int	main(int ac, char **av)
 	t_stack		*b;
 	int			i;
 	t_operation	*ops;
-
+	
 	if (ac < 2)
 		return (write(1, "Error\n", 6), 1);
 	a = init_stack();
