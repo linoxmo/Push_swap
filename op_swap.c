@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	swap(t_list **lst)
+static void	swap(t_list **lst)
 {
 	t_list	*node;
 
