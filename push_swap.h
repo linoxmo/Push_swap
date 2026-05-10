@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmagoudi <ttmagoudi@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/09 17:26:47 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/09 17:57:18 by tmagoudi         ###   ########.fr       */
+/*   Created: 2026/05/09 17:39:53 by tmagoudi          #+#    #+#             */
+/*   Updated: 2026/05/09 18:09:19 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int 	main(int ac, char **av)
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+typdef struct	s_list
 {
-	int	i;
+	int	content;
+	struct  s_list *next;
+}		t_list;
 
-	if (ac < 2)
-	{
-		write(1, "Error\n", 6);
-		return (0);
-	}
-	i = 0;
-	while(av[i])
-	{
-		printf("%d,\n",ft_atoi(av[i]));
-		i++;
-	} 
-	return(1);
-}
+void 	ft_lstadd_back(t_list **lst, t_list *new);
+int	ft_atoi(char *str);
+
+#endif
