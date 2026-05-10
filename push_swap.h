@@ -6,7 +6,7 @@
 /*   By: tmagoudi <ttmagoudi@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 17:39:53 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/09 18:09:19 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/10 16:29:10 by rfeghali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typdef struct	s_list
+typedef struct	s_list
 {
 	int	content;
 	struct  s_list *next;
 }		t_list;
 
 void 	ft_lstadd_back(t_list **lst, t_list *new);
-int	ft_atoi(char *str);
+int		ft_atoi(char *str);
 
 #endif
