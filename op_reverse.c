@@ -2,12 +2,18 @@
 
 static void reverse_rotate(t_list **lst)
 {
-	t_list	*tmp;
+	t_list	*prev;
+	t_list	*last;
 
-	tmp = ft_lstlast(*lst);
-	tmp->next = *lst;
-	*lst = (*lst)->next;
-	tmp->next->next = NULL;
+	if (!lst || !*lst || !(*lst)->next)
+		return ;
+	prev = *lst;
+	while (prev->next->next != NULL)
+		prev = prev->next;
+	last = prev->next;
+	prev->next = NULL;
+	last->next = *lst;
+	*lst = last;
 }
 
 void	rra(t_list **a)
