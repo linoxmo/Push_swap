@@ -6,7 +6,7 @@
 /*   By: tmagoudi <ttmagoudi@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 17:39:53 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/11 13:41:24 by rfeghali         ###   ########.fr       */
+/*   Updated: 2026/05/11 19:06:16 by rfeghali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <stdio.h>
-
 
 typedef struct	s_list
 {
@@ -31,18 +30,34 @@ typedef struct s_stack
 	int		size;
 }	t_stack;
 
+typedef struct s_operation
+{
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total;
+}	t_operation;
+
 /* stack operations */
-void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *a, t_stack *b);
-void	sa(t_stack *a);
-void	sb(t_stack *b);
-void	ss(t_stack *a, t_stack *b);
-void	ra(t_stack *a);
-void	rb(t_stack *b);
-void	rr(t_stack *a, t_stack *b);
-void	rra(t_stack *a);
-void	rrb(t_stack *b);
-void	rrr(t_stack *a, t_stack *b);
+void	pa(t_stack *a, t_stack *b, t_operation *ops);
+void	pb(t_stack *a, t_stack *b, t_operation *ops);
+void	sa(t_stack *a, t_operation *ops);
+void	sb(t_stack *b, t_operation *ops);
+void	ss(t_stack *a, t_stack *b, t_operation *ops);
+void	ra(t_stack *a, t_operation *ops);
+void	rb(t_stack *b, t_operation *ops);
+void	rr(t_stack *a, t_stack *b, t_operation *ops);
+void	rra(t_stack *a, t_operation *ops);
+void	rrb(t_stack *b, t_operation *ops);
+void	rrr(t_stack *a, t_stack *b, t_operation *ops);
 
 /* list utils */
 void 	ft_lstadd_back(t_list **lst, t_list *new);

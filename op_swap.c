@@ -12,20 +12,23 @@ static void	swap(t_stack *lst)
 	lst->top = node;
 }
 
-void	sa(t_stack *a)
+void	sa(t_stack *a, t_operation *ops)
 {
 	swap(a);
+	ops->sa++;
 }
 
-void	sb(t_stack *b)
+void	sb(t_stack *b, t_operation *ops)
 {
 	swap(b);
+	ops->sb++;
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b, t_operation *ops)
 {
 	swap(a);
 	swap(b);
+	ops->ss++;
 }
 
 // int main(void)
