@@ -6,7 +6,7 @@
 /*   By: tmagoudi <ttmagoudi@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 17:39:53 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/11 20:27:58 by rfeghali         ###   ########.fr       */
+/*   Updated: 2026/05/11 23:46:58 by rfeghali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 
 typedef struct	s_list
 {
-	int	content;
-	struct  s_list *next;
+	int				content;
+	int				index;
+	struct  s_list	*next;
 }		t_list;
 
 typedef struct s_stack
@@ -82,7 +83,7 @@ size_t	ft_strlen(char const *s);
 t_operation	*init_ops(void);
 
 /*sort algos */
-void	simple_sort(t_stack *a, t_stack *b);
+void	simple_sort(t_stack *a, t_stack *b, t_operation *ops);
 int		is_sorted(t_stack *a);
 
 #endif

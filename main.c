@@ -21,10 +21,9 @@ int	main(int ac, char **av)
 		a->size++;
 		i++;
 	}
-	simple_sort(a, b);
+	simple_sort(a, b, ops);
 	print_stack(a);
 	print_stack(b);
-	free_stack(a);
-	free_stack(b);
-	return (0);
+	printf("\n%d\n", ops->total);
+	return (free_stack(a), free_stack(b), free(ops), 0);
 }

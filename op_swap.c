@@ -16,12 +16,14 @@ void	sa(t_stack *a, t_operation *ops)
 {
 	swap(a);
 	ops->sa++;
+	ops->total++;
 }
 
 void	sb(t_stack *b, t_operation *ops)
 {
 	swap(b);
 	ops->sb++;
+	ops->total++;
 }
 
 void	ss(t_stack *a, t_stack *b, t_operation *ops)
@@ -29,6 +31,7 @@ void	ss(t_stack *a, t_stack *b, t_operation *ops)
 	swap(a);
 	swap(b);
 	ops->ss++;
+	ops->total++;
 }
 
 // int main(void)
