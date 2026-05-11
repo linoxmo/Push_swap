@@ -6,7 +6,7 @@
 /*   By: tmagoudi <ttmagoudi@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 17:39:53 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/11 19:06:16 by rfeghali         ###   ########.fr       */
+/*   Updated: 2026/05/11 20:27:58 by rfeghali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 char	**ft_split(char const *s, char c);
 void	free_split(char **res, int m);
 size_t	ft_strlen(char const *s);
+
+/* init function */
+t_operation	*init_ops(void);
 
 /*sort algos */
 void	simple_sort(t_stack *a, t_stack *b);

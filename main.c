@@ -5,12 +5,14 @@ int	main(int ac, char **av)
 	t_stack		*a;
 	t_stack		*b;
 	int			i;
+	t_operation	*ops;
 
 	if (ac < 2)
 		return (write(1, "Error\n", 6), 1);
 	a = init_stack();
 	b = init_stack();
-	if (!a || !b)
+	ops = init_ops();
+	if (!a || !b || !ops)
 		return (write(1, "Error\n", 6), 1);
 	i = 1;
 	while (i < ac)
