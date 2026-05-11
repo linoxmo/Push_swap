@@ -1,32 +1,32 @@
 #include "push_swap.h"
 
-static void reverse_rotate(t_list **lst)
+static void reverse_rotate(t_stack *lst)
 {
 	t_list	*prev;
 	t_list	*last;
 
-	if (!lst || !*lst || !(*lst)->next)
+	if (!lst || !lst->top || !lst->top->next)
 		return ;
-	prev = *lst;
+	prev = lst->top;
 	while (prev->next->next != NULL)
 		prev = prev->next;
 	last = prev->next;
 	prev->next = NULL;
-	last->next = *lst;
-	*lst = last;
+	last->next = lst->top;
+	lst->top = last;
 }
 
-void	rra(t_list **a)
+void	rra(t_stack *a)
 {
 	reverse_rotate(a);
 }
 
-void	rrb(t_list **b)
+void	rrb(t_stack *b)
 {
 	reverse_rotate(b);
 }
 
-void	rrr(t_list **a, t_list **b)
+void	rrr(t_stack *a, t_stack *b)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
@@ -34,8 +34,8 @@ void	rrr(t_list **a, t_list **b)
 
 // int main(void)
 // {
-// 	t_list	*a;
-// 	t_list	*b;
+// 	t_stack	*a;
+// 	t_stack	*b;
 // 	int		i;
 // 	int		len;
 //

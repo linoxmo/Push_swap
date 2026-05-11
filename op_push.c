@@ -1,31 +1,33 @@
 #include "push_swap.h"
 
-static void	push(t_list **from, t_list **to)
+static void	push(t_stack *from, t_stack *to)
 {
 	t_list	*tmp;
 
-	if (!from || !to || !*from)
+	if (!from || !to || !from->top)
 		return ;
-	tmp = (*from)->next;
-	(*from)->next = *to;
-	*to = *from;
-	*from = tmp;
+	tmp = from->top->next;
+	from->top->next = to->top;
+	to->top = from->top;
+	from->top = tmp;
+	from->size--;
+	to->size++;
 }
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_stack *a, t_stack *b)
 {
 	push(b, a);
 }
 
-void	pb(t_list **a, t_list **b)
+void	pb(t_stack *a, t_stack *b)
 {
 	push(a, b);
 }
 
 // int main(void)
 // {
-// 	t_list	*a;
-// 	t_list	*b;
+// 	t_stack	*a;
+// 	t_stack	*b;
 // 	int		i;
 // 	int		len;
 //
