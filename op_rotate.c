@@ -1,28 +1,28 @@
 #include "push_swap.h"
 
-static void	rotate(t_list **lst)
+static void	rotate(t_stack *lst)
 {
 	t_list	*tmp;
 
-	if (!lst || *lst || !(*lst)->next)
+	if (!lst || !lst->top || !lst->top->next)
 		return ;
-	tmp = ft_lstlast(*lst);
-	tmp->next = *lst;
-	*lst = (*lst)->next;
+	tmp = ft_lstlast(lst->top);
+	tmp->next = lst->top;
+	lst->top = lst->top->next;
 	tmp->next->next = NULL;
 }
 
-void	ra(t_list **a)
+void	ra(t_stack *a)
 {
 	rotate(a);
 }
 
-void	rb(t_list **b)
+void	rb(t_stack *b)
 {
 	rotate(b);
 }
 
-void	rr(t_list **a, t_list **b)
+void	rr(t_stack *a, t_stack *b)
 {
 	rotate(a);
 	rotate(b);
@@ -30,8 +30,8 @@ void	rr(t_list **a, t_list **b)
 
 // int main(void)
 // {
-// 	t_list	*a;
-// 	t_list	*b;
+// 	t_stack	*a;
+// 	t_stack	*b;
 // 	int		i;
 // 	int		len;
 //

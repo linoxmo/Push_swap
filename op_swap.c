@@ -1,28 +1,28 @@
 #include "push_swap.h"
 
-static void	swap(t_list **lst)
+static void	swap(t_stack *lst)
 {
 	t_list	*node;
 
-	if (!lst || !*lst || !(*lst)->next)
+	if (!lst || !lst->top || !lst->top->next)
 		return ;
-	node = (*lst)->next;
-	(*lst)->next = node->next;
-	node->next = (*lst);
-	(*lst) = node;
+	node = lst->top->next;
+	lst->top->next = node->next;
+	node->next = lst->top;
+	lst->top = node;
 }
 
-void	sa(t_list **a)
+void	sa(t_stack *a)
 {
 	swap(a);
 }
 
-void	sb(t_list **b)
+void	sb(t_stack *b)
 {
 	swap(b);
 }
 
-void	ss(t_list **a, t_list **b)
+void	ss(t_stack *a, t_stack *b)
 {
 	swap(a);
 	swap(b);
