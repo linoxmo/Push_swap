@@ -16,20 +16,26 @@ static void reverse_rotate(t_stack *lst)
 	lst->top = last;
 }
 
-void	rra(t_stack *a)
+void	rra(t_stack *a, t_operation *ops)
 {
 	reverse_rotate(a);
+	ops->rra++;
+	ops->total++;
 }
 
-void	rrb(t_stack *b)
+void	rrb(t_stack *b, t_operation *ops)
 {
 	reverse_rotate(b);
+	ops->rrb++;
+	ops->total++;
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_stack *a, t_stack *b, t_operation *ops)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
+	ops->rrr++;
+	ops->total++;
 }
 
 // int main(void)

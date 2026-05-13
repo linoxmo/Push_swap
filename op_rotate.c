@@ -12,20 +12,26 @@ static void	rotate(t_stack *lst)
 	tmp->next->next = NULL;
 }
 
-void	ra(t_stack *a)
+void	ra(t_stack *a, t_operation *ops)
 {
 	rotate(a);
+	ops->ra++;
+	ops->total++;
 }
 
-void	rb(t_stack *b)
+void	rb(t_stack *b, t_operation *ops)
 {
 	rotate(b);
+	ops->rb++;
+	ops->total++;
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_stack *a, t_stack *b, t_operation *ops)
 {
 	rotate(a);
 	rotate(b);
+	ops->rr++;
+	ops->total++;
 }
 
 // int main(void)

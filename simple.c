@@ -36,16 +36,17 @@ static int	get_rotation_cost(int size, int pos)
 }
 
 // Rotates in cheapest direction
-static void	rotate_stack_to_top(t_stack *stack, int pos, char stack_name)
+static void	rotate_stack_to_top(t_stack *stack,
+	int pos, char stack_name, t_operation *ops)
 {
 	if (pos <= stack->size / 2)
 	{
 		while (pos-- > 0)
 		{
 			if (stack_name == 'a')
-				ra(stack);
+				ra(stack, ops);
 			else
-				rb(stack);
+				rb(stack, ops);
 		}
 	}
 	else
@@ -54,14 +55,14 @@ static void	rotate_stack_to_top(t_stack *stack, int pos, char stack_name)
 		while (pos-- > 0)
 		{
 			if (stack_name == 'a')
-				rra(stack);
+				rra(stack, ops);
 			else
-				rrb(stack);
+				rrb(stack, ops);
 		}
 	}
 }
 
-static void	sort_three(t_stack *a)
+static void	sort_three(t_stack *a, t_operation *ops)
 {
 	int	first;
 	int	second;
@@ -71,21 +72,21 @@ static void	sort_three(t_stack *a)
 	second = a->top->next->content;
 	third = a->top->next->next->content;
 	if (first > second && second < third && first < third)
-		sa(a);
+		sa(a, ops);
 	else if (first > second && second > third)
 	{
-		sa(a);
-		rra(a);
+		sa(a, ops);
+		rra(a, ops);
 	}
 	else if (first > second && second < third && first > third)
-		ra(a);
+		ra(a, ops);
 	else if (first < second && second > third && first < third)
 	{
-		sa(a);
-		ra(a);
+		sa(a, ops);
+		ra(a, ops);
 	}
 	else if (first < second && second > third && first > third)
-		rra(a);
+		rra(a, ops);
 }
 
 static void	find_cheapest_move(t_stack *a, t_stack *b,
@@ -116,23 +117,23 @@ static void	find_cheapest_move(t_stack *a, t_stack *b,
 	}
 }
 
-static void	final_rotate(t_stack *a)
+static void	final_rotate(t_stack *a, t_operation *ops)
 {
 	int	min_pos;
 
 	min_pos = get_position(a, stack_min(a));
 	if (min_pos <= a->size / 2)
 		while (min_pos-- > 0)
-			ra(a);
+			ra(a, ops);
 	else
 	{
 		min_pos = a->size - min_pos;
 		while (min_pos-- > 0)
-			rra(a);
+			rra(a, ops);
 	}
 }
 
-void	simple_sort(t_stack *a, t_stack *b)
+void	simple_sort(t_stack *a, t_stack *b, t_operation *ops)
 {
 	int	best_b_pos;
 	int	best_a_pos;
@@ -142,20 +143,20 @@ void	simple_sort(t_stack *a, t_stack *b)
 	if (a->size == 2)
 	{
 		if (a->top->content > a->top->next->content)
-			sa(a);
+			sa(a, ops);
 		return ;
 	}
 	if (a->size == 3)
-		return (sort_three(a));
+		return (sort_three(a, ops));
 	while (a->size > 3)
-		pb(a, b);
-	sort_three(a);
+		pb(a, b, ops);
+	sort_three(a, ops);
 	while (b->size > 0)
 	{
 		find_cheapest_move(a, b, &best_b_pos, &best_a_pos);
-		rotate_stack_to_top(a, best_a_pos, 'a');
-		rotate_stack_to_top(b, best_b_pos, 'b');
-		pa(a, b);
+		rotate_stack_to_top(a, best_a_pos, 'a', ops);
+		rotate_stack_to_top(b, best_b_pos, 'b', ops);
+		pa(a, b, ops);
 	}
-	final_rotate(a);
+	final_rotate(a, ops);
 }

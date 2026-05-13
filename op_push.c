@@ -14,14 +14,18 @@ static void	push(t_stack *from, t_stack *to)
 	to->size++;
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b, t_operation *ops)
 {
 	push(b, a);
+	ops->pa++;
+	ops->total++;
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_stack *a, t_stack *b, t_operation *ops)
 {
 	push(a, b);
+	ops->pb++;
+	ops->total++;
 }
 
 // int main(void)

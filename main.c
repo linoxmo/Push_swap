@@ -5,12 +5,14 @@ int	main(int ac, char **av)
 	t_stack		*a;
 	t_stack		*b;
 	int			i;
+	t_operation	*ops;
 
 	if (ac < 2)
 		return (write(1, "Error\n", 6), 1);
 	a = init_stack();
 	b = init_stack();
-	if (!a || !b)
+	ops = init_ops();
+	if (!a || !b || !ops)
 		return (write(1, "Error\n", 6), 1);
 	i = 1;
 	while (i < ac)
@@ -19,10 +21,9 @@ int	main(int ac, char **av)
 		a->size++;
 		i++;
 	}
-	simple_sort(a, b);
+	simple_sort(a, b, ops);
 	print_stack(a);
 	print_stack(b);
-	free_stack(a);
-	free_stack(b);
-	return (0);
+	printf("\n%d\n", ops->total);
+	return (free_stack(a), free_stack(b), free(ops), 0);
 }
