@@ -6,37 +6,42 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/12 16:16:56 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/13 14:19:02 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/13 19:43:20 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *ft_simple_1(t_stack *a, t_stack *b) {
+void ft_simple_1(t_stack *a, t_stack *b, t_operation *ops) {
   int i;
   int min;
   int pos;
   t_list *temp;
 
-  i = 0;
-  min = a->top->content;
   pos = 0;
-  temp = a->top;
-  while (temp) {
-    while (i < a->size) {
-      temp = temp->next;
-      if (temp->content <= min) {
+  min = a->top->content;
+  while (a->size) 
+  {
+    temp = a->top;
+    min = temp->content;
+    i = 0;
+    while (temp) 
+    {
+	if (temp->content < min) 
+	{
         min = temp->content;
         pos = i;
       }
+      temp = temp->next;
       i++;
     }
-    i = 0;
-    while (i < pos) {
-      ra(a);
-      i++;
+    while (pos-- > 0) 
+    {
+      ra(a, ops);
     }
-    pb(a, b);
+    pb(a, b, ops);
   }
-  return (a);
+  while (b->size > 0)
+    pa(a, b, ops);
+  return;
 }

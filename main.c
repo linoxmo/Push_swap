@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 		a->size++;
 		i++;
 	}
-	simple_sort(a, b, ops);
+	ft_simple_1(a, b, ops);
 	print_stack(a);
 	print_stack(b);
 	printf("\n%d\n", ops->total);

@@ -6,7 +6,7 @@
 /*   By: tmagoudi <ttmagoudi@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 17:39:53 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/11 23:46:58 by rfeghali         ###   ########.fr       */
+/*   Updated: 2026/05/13 18:16:56 by tmagoudi         ###   ########.fr       */
 /*   Updated: 2026/05/12 15:47:04 by tmagoudi         ###   ########.fr       */
 /*   Updated: 2026/05/10 15:59:01 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
@@ -83,6 +83,7 @@ t_operation *init_ops(void);
 
 /*sort algos */
 void simple_sort(t_stack *a, t_stack *b, t_operation *ops);
+void ft_simple_1(t_stack *a, t_stack *b, t_operation *ops);
 int is_sorted(t_stack *a);
 int ft_atoi(char *str);
 t_list *ft_lstnew(int content);
