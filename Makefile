@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRCS = main.c parsing.c ft_split.c ft_strlcpy.c ft_strlen.c \
+SRCS = main.c ft_strlcpy.c ft_strlen.c \
        op_push.c op_rotate.c op_reverse.c op_swap.c print.c \
        disorder.c stack_utils.c ft_lstnew.c ft_lstlast.c \
 	   ft_lstadd_back.c ft_atol.c simple.c utils.c init.c

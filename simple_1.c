@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   simple_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/12 15:52:09 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/13 18:05:29 by tmagoudi         ###   ########.fr       */
+/*   Created: 2026/05/12 16:16:56 by tmagoudi          #+#    #+#             */
+/*   Updated: 2026/05/12 16:23:54 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t  ft_strlen(char const *s)
+t_stack* ft_simple_1(t_stack *a, t_stack*b)
 {
-	size_t	i;
+	temp
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+
+	return (a);
 }
