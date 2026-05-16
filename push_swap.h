@@ -87,4 +87,6 @@ void ft_simple_1(t_stack *a, t_stack *b, t_operation *ops);
 int is_sorted(t_stack *a);
 int ft_atoi(char *str);
 t_list *ft_lstnew(int content);
+void ft_normalise(t_stack *a);
+void pt_index(t_stack *a);
 #endif

@@ -21,9 +21,12 @@ int	main(int ac, char **av)
 		a->size++;
 		i++;
 	}
-	ft_simple_1(a, b, ops);
+	ft_normalise(a);
+	pt_index(a);
+	//ft_simple_1(a, b, ops);
 	print_stack(a);
 	print_stack(b);
 	printf("\n%d\n", ops->total);
+
 	return (free_stack(a), free_stack(b), free(ops), 0);
 }
