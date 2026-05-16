@@ -15,3 +15,20 @@ int	is_sorted(t_stack *a)
 	}
 	return (1);
 }
+
+int	get_position_idx(t_stack *stack, int target)
+{
+	t_list	*cur;
+	int		pos;
+
+	cur = stack->top;
+	pos = 0;
+	while (cur)
+	{
+		if (cur->index == target)
+			return (pos);
+		cur = cur->next;
+		pos++;
+	}
+	return (-1);
+}

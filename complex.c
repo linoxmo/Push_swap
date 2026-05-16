@@ -12,28 +12,6 @@ static int	get_max_bits(t_stack *a)
 	return (bits);
 }
 
-static void	init_index(t_stack *a)
-{
-	t_list	*i;
-	t_list	*j;
-	int		index;
-
-	i = a->top;
-	while (i)
-	{
-		index = 0;
-		j = a->top;
-		while (j)
-		{
-			if (j->content < i->content)
-				index++;
-			j = j->next;
-		}
-		i->index = index;
-		i = i->next;
-	}
-}
-
 void	radix_sort(t_stack *a, t_stack *b, t_operation *ops)
 {
 	int		i;
