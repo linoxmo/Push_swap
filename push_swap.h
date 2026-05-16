@@ -6,7 +6,7 @@
 /*   By: tmagoudi <ttmagoudi@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 17:39:53 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/11 23:46:58 by rfeghali         ###   ########.fr       */
+/*   Updated: 2026/05/16 17:18:50 by rfeghali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_stack
 	t_list	*top;
 	int		size;
 }	t_stack;
+
 
 typedef struct s_operation
 {
@@ -78,12 +79,15 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 char	**ft_split(char const *s, char c);
 void	free_split(char **res, int m);
 size_t	ft_strlen(char const *s);
+int		ft_strcmp(const char *s1, const char *s2);
+int		compute_disorder(t_stack *a);
 
 /* init function */
 t_operation	*init_ops(void);
 
 /*sort algos */
 void	simple_sort(t_stack *a, t_stack *b, t_operation *ops);
+void	complex_sort(t_stack *a, t_stack *b, t_operation *ops);
 int		is_sorted(t_stack *a);
 
 #endif

@@ -34,7 +34,7 @@ static void	init_index(t_stack *a)
 	}
 }
 
-void	radix_sort(t_stack *a, t_stack *b, t_operation *ops)
+void	complex_sort(t_stack *a, t_stack *b, t_operation *ops)
 {
 	int		i;
 	int		j;

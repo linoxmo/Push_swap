@@ -26,5 +26,5 @@ int	compute_disorder(t_stack *a)
 	}
 	if (total_pairs == 0)
 		return (0);
-	return ((mistakes * 10000) / total_pairs);
+	return ((mistakes * 100) / total_pairs);
 }
